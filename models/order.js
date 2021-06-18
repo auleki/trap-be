@@ -17,6 +17,10 @@ const OrderSchema = new Schema({
   buyer: {
     type: Schema.Types.ObjectId,
     ref: 'Customer'
+  },
+  orderNumber: {
+    type: String,
+    required: true
   }
 })
 
