@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const orderSchema = new Schema({
+const OrderSchema = new Schema({
   herbs: {
     type: [],
     required: true
@@ -14,10 +14,10 @@ const orderSchema = new Schema({
     type: Number,
     required: true
   },
-  customer: {
-    type: String,
-    required: true
+  buyer: {
+    type: Schema.Types.ObjectId,
+    ref: 'Customer'
   }
 })
 
-module.exports = mongoose.model('order', orderSchema)
+module.exports = mongoose.model('Order', OrderSchema)

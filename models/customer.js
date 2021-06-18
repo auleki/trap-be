@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const customerSchema = new Schema({
+const CustomerSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -24,10 +24,12 @@ const customerSchema = new Schema({
     type: Number,
     required: true
   },
-  purchases: {
-    type: String,
-    required: true
-  }
+  purchases: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Order'
+    }
+  ]
 })
 
-module.exports = mongoose.model('customer', customerSchema)
+module.exports = mongoose.model('Customer', CustomerSchema)
