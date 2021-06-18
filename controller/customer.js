@@ -26,6 +26,16 @@ const CustomerController = {
     } catch (error) {
       res.json(error)
     }
+  },
+  createCustomer: async (req, res) => {
+    try {
+      const customerDetails = req.body.customer
+      const createdCustomer = await new Customer(customerDetails)
+      const savedCustomer = await createdCustomer.save()
+      res.status(200).json(savedCustomer)
+    } catch (error) {
+      res.status(400).json(error)
+    }
   }
 }
 

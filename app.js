@@ -3,10 +3,11 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const connectToDb = require('./utils/connectDb')
+const morgan = require('morgan')
 
 app.use(express.json())
 app.use(cors())
-
+app.use(morgan('dev'))
 // CONNECT TO MONGODB
 connectToDb()
 
