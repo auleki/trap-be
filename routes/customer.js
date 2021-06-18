@@ -1,7 +1,7 @@
 const router = require('express').Router()
+const CustomerController = require('../controller/customer')
 
-router.get('/', (req, res) => {})
-
-router.post('/', (req, res) => {})
+router.get('/', CustomerController.allCustomers)
+router.get('/:username', CustomerController.findCustomer)
 
 module.exports = router
