@@ -5,15 +5,12 @@ const connectToDb = async () => {
   const DB_URL = process.env.DB_URL
   const mongooseOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   }
   mongoose.connect(DB_URL, mongooseOptions, err => {
-    if (err) {
-      console.error(err)
-      // res.send(401, 'Connection Error')
-    }
+    if (err) return console.error(err)
     console.log('Connected to DB')
-    // next()
   })
 }
 
