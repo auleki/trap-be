@@ -3,8 +3,8 @@ const Customer = require('../models/customer')
 const CustomerController = {
   allCustomers: async (req, res) => {
     try {
-      const herbs = await Customer.find({})
-      res.json(herbs)
+      const customers = await Customer.find({})
+      res.json(customers)
     } catch (error) {
       res.json(error)
     }
