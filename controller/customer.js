@@ -19,9 +19,7 @@ const CustomerController = {
   },
   allOrders: async (req, res) => {
     try {
-      const orders = await Customer.find({
-        username: req.params.username
-      }).populate('orders')
+      const orders = await Customer.find({}).populate('purchases')
       res.status(200).json(orders)
     } catch (error) {
       res.json(error)
@@ -32,7 +30,9 @@ const CustomerController = {
       const customerDetails = req.body.customer
       const createdCustomer = await new Customer(customerDetails)
       const savedCustomer = await createdCustomer.save()
+      console.log(savedCustomer)
       res.status(200).json(savedCustomer)
+      // res.status(200).json({ msg: 'Creating Customer Routes' })
     } catch (error) {
       res.status(400).json(error)
     }

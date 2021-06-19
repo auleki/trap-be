@@ -21,7 +21,7 @@ const CustomerSchema = new Schema({
     required: true
   },
   phone: {
-    type: Number,
+    type: String,
     required: true
   },
   purchases: [
@@ -33,3 +33,12 @@ const CustomerSchema = new Schema({
 })
 
 module.exports = mongoose.model('Customer', CustomerSchema)
+
+// {
+//   "firstName": "James",
+//   "lastName": "Cameron",
+//   "username": "jcanon",
+//   "username": "jcameron",
+//   "state": "Lagos",
+//   "phone": 08032549841,
+// }

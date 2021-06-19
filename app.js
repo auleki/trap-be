@@ -14,9 +14,11 @@ connectToDb()
 // IMPORT ROUTE HANDLERS
 const customerRoutes = require('./routes/customer')
 const adminRoutes = require('./routes/admin')
+const orderRoutes = require('./routes/order')
 
-app.use('/', customerRoutes)
+app.use('/customers', customerRoutes)
 app.use('/admin', adminRoutes)
+app.use('/orders', orderRoutes)
 
 const PORT = process.env.PORT
 

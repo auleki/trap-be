@@ -2,8 +2,9 @@ const Order = require('../models/order')
 
 const OrderController = {
   allOrders: async (req, res) => {
-    const orders = await Order.find({})
+    const orders = await Order.find({}).populate('buyer')
     res.json(orders)
+    // res.json({ msg: 'ORDER PAGE HIT!' })
   },
   findOrder: async (req, res) => {
     try {
@@ -16,9 +17,11 @@ const OrderController = {
   },
   createOrder: async (req, res) => {
     try {
-      const orderDetails = req.body.order
+      const orderDetails = req.body
       const createdOrder = await new Order(orderDetails)
-      res.status(200).json(createdOrder)
+      const savedOrder = await createdOrder.save()
+      console.log(savedOrder)
+      res.status(200).json(savedOrder)
     } catch (error) {
       res.status(400).json(error)
     }
