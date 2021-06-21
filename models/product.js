@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const HerbSchema = new Schema({
-  specie: {
+const ProductSchema = new Schema({
+  name: {
     type: String,
     required: true,
     unique: true
   },
-  herbType: {
+  productType: {
     type: String
   },
   price: {
@@ -23,4 +23,4 @@ const HerbSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Herb', HerbSchema)
+module.exports = mongoose.model('Product', ProductSchema)

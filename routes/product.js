@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const HerbController = require('../controller/herb')
+const HerbController = require('../controller/product')
 
 router.get('/', HerbController.allHerbs)
 

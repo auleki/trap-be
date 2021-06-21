@@ -24,6 +24,9 @@ const CustomerSchema = new Schema({
     type: String,
     required: true
   },
+  favorites: {
+    type: Object
+  },
   purchases: [
     {
       type: Schema.Types.ObjectId,

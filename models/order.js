@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const OrderSchema = new Schema({
-  herbs: {
+  products: {
     type: [],
     required: true
   },

@@ -32,7 +32,6 @@ const CustomerController = {
       const savedCustomer = await createdCustomer.save()
       console.log(savedCustomer)
       res.status(200).json(savedCustomer)
-      // res.status(200).json({ msg: 'Creating Customer Routes' })
     } catch (error) {
       res.status(400).json(error)
     }
